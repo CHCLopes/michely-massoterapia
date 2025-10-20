@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { href: "#contact", label: "Contato" }
 ];
 
-const Header = () => {
+const Header = ({ abrirModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,6 +32,13 @@ const Header = () => {
         behavior: 'smooth'
       });
     }
+  };
+
+  // Função para abrir o modal diretamente
+  const handleAgendarClick = (e) => {
+    e.preventDefault();
+    closeMenu(); // Fecha o menu mobile se estiver aberto
+    abrirModal(); // Abre o modal de agendamento
   };
 
   return (
@@ -79,13 +86,12 @@ const Header = () => {
           <div className="grid grid-cols-[auto_auto] gap-4 items-center justify-self-end">
             
             {/* Botão Agendar Horário Desktop */}
-            <a 
-              href="#contact" 
+            <button 
               className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-full font-semibold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-sm hover:-translate-y-0.5 whitespace-nowrap"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              onClick={handleAgendarClick}
             >
               Agendar Horário
-            </a>
+            </button>
 
             {/* Botão Menu Hamburguer */}
             <button 
@@ -106,13 +112,12 @@ const Header = () => {
 
         {/* Segunda linha: Botão Agendar Horário Centralizado - apenas em mobile */}
         <div className="md:hidden grid justify-center mt-4">
-          <a 
-            href="#contact" 
+          <button 
             className="bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-center max-w-xs text-lg hover:-translate-y-0.5 justify-self-center col-span-full"
-            onClick={(e) => handleNavClick(e, '#contact')}
+            onClick={handleAgendarClick}
           >
             Agendar Horário
-          </a>
+          </button>
         </div>
 
         {/* Menu Mobile */}
@@ -135,6 +140,15 @@ const Header = () => {
                   </a>
                 </li>
               ))}
+              {/* Item adicional para agendamento no menu mobile */}
+              <li className="border-t border-gray-200 pt-2 mt-2">
+                <button 
+                  className="block w-full text-primary font-semibold hover:bg-primary hover:text-white transition-colors p-2 rounded text-sm text-center"
+                  onClick={handleAgendarClick}
+                >
+                  📅 Agendar Sessão
+                </button>
+              </li>
             </ul>
           </nav>
         </div>

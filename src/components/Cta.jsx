@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cta = () => {
+const Cta = ({ abrirModal }) => {
   return (
     <section 
       id="contact" 
@@ -26,12 +26,12 @@ const Cta = () => {
         <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 opacity-90">
           Agende agora mesmo sua sessão e descubra os benefícios da massoterapia para sua saúde e bem-estar.
         </p>
-        <a 
-          href="#contact" 
-          className="inline-block bg-white font-size-8 text-[#07a0a4] px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:-translate-y-1 transition-all shadow-lg hover:shadow-white/30 text-lg"
+        <button 
+          onClick={abrirModal}
+          className="inline-block bg-white text-[#07a0a4] px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:-translate-y-1 transition-all shadow-lg hover:shadow-white/30 text-lg"
         >
           Venha para Michely Massoterapia
-        </a>
+        </button>
       </div>
     </section>
   );
