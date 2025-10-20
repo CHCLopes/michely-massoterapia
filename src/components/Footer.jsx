@@ -22,7 +22,7 @@ const Footer = () => {
             </p>
             <p className="flex items-center">
               <FaEnvelope className="mr-3 text-secondary" />
-              michelyrfarias@yahoo.com.br
+              michelymassoterapia@gmail.com
             </p>
           </div>
           

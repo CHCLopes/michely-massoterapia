@@ -9,17 +9,17 @@ const Services = () => {
     {
       image: "/images/massoterapia.jpg", // ✅ Corrigido: removido "public/"
       title: "Massoterapia Relaxante",
-      description: "Deixe-se envolver pela nossa Massoterapia Relaxante, uma experiência única que combina movimentos suaves e firmes para aliviar profundamente o estresse e a tensão muscular, promovendo um estado de relaxamento e bem-estar que você merece. Agende sua sessão e sinta a diferença!"
+      description: "Deixe-se envolver pela Massoterapia Relaxante, uma experiência única que combina movimentos suaves e firmes para aliviar profundamente o estresse e a tensão muscular, promovendo um estado de relaxamento e bem-estar que você merece. Agende sua sessão e sinta a diferença!"
     },
     {
       image: "/images/terapeutica.jpg",
       title: "Massagem Terapêutica",
-      description: "Nossa Massagem Terapêutica é especializada no tratamento eficaz de dores específicas, lesões e problemas musculares. Com técnicas avançadas e focadas, oferecemos o alívio e a recuperação que você busca para retomar suas atividades com conforto e bem-estar. Agende uma avaliação e invista na sua saúde muscular!"
+      description: "A Massagem Terapêutica é especializada no tratamento eficaz de dores específicas, lesões e problemas musculares. Com técnicas avançadas e focadas, ofereço o alívio e a recuperação que você busca para retomar suas atividades com conforto e bem-estar. Agende uma avaliação e invista na sua saúde muscular!"
     },
     {
       image: "/images/podal.jpg",
       title: "Massagem Podal",
-      description: "A Massagem Podal é o carinho que seus pés merecem após um dia cansativo. Através de técnicas específicas nos pontos de reflexologia, promovemos alívio de tensões, redução do inchaço e uma profunda sensação de relaxamento que se irradia por todo o corpo, renovando suas energias e bem-estar geral. Liberte seus pés do cansaço e sinta a leveza!"
+      description: "A Massagem Podal é o carinho que seus pés merecem após um dia cansativo. Através de técnicas específicas nos pontos de reflexologia, promovo alívio de tensões, redução do inchaço e uma profunda sensação de relaxamento que se irradia por todo o corpo, renovando suas energias e bem-estar geral. Liberte seus pés do cansaço e sinta a leveza!"
     },
     {
       image: "/images/shantala.jpg",
@@ -34,7 +34,7 @@ const Services = () => {
     {
       image: "/images/drenagem.jpg",
       title: "Drenagem Linfática",
-      description: "Redescubra a leveza e vitalidade com nossa Drenagem Linfática, uma técnica suave e eficaz que estimula seu sistema a eliminar o inchaço e toxinas. Sinta o corpo desinflamar, a circulação melhorar e a sensação de bem-estar se renovar, revelando contornos mais definidos e uma pele mais saudável. Permita-se sentir mais leve e energizada!"
+      description: "Redescubra a leveza e vitalidade com nossa Drenagem Linfática, uma técnica suave e eficaz que estimula seu sistema a eliminar o inchaço e toxinas. Sinta o corpo desinflamar, a circulação melhorar e a sensação de bem-estar se renovar, revelando contornos mais definidos e uma pele mais saudável. Permita-se sentir mais leve e com mais energia!"
     },
     {
       image: "/images/drenoRelaxante.jpg", 
@@ -44,12 +44,12 @@ const Services = () => {
     {
       image: "/images/drenoModeladora.jpg",
       title: "Dreno-Modeladora",
-      description: "Conquiste contornos mais definidos e uma silhueta esculpida com nossa Dreno Modeladora. Essa técnica poderosa combina a redução de inchaço e eliminação de toxinas da drenagem linfática com movimentos firmes da massagem modeladora, atuando na quebra de gordura localizada e na melhoria da circulação para um corpo visivelmente mais harmonioso e tonificado. Revele a sua melhor forma!"
+      description: "Conquiste contornos mais definidos e uma silhueta esculpida com a Dreno Modeladora. Essa técnica poderosa combina a redução de inchaço e eliminação de toxinas da drenagem linfática com movimentos firmes da massagem modeladora, atuando na quebra de gordura localizada e na melhoria da circulação para um corpo visivelmente mais harmonioso e tonificado. Revele a sua melhor forma!"
     },
     {
       image: "/images/drenagemFacial.jpg",
       title: "Drenagem Facial",
-      description: "Ilumine e revitalize seu rosto com nossa Drenagem Facial, um toque delicado que atua profundamente para reduzir inchaço, suavizar olheiras e bolsas, e melhorar a circulação. Este tratamento promove uma desintoxicação natural, deixando sua pele com um aspecto mais saudável, fresco e radiante. Permita-se esse cuidado rejuvenescedor para sua beleza natural!"
+      description: "Ilumine e revitalize seu rosto com a Drenagem Facial, um toque delicado que atua profundamente para reduzir inchaço, suavizar olheiras e bolsas, e melhorar a circulação. Este tratamento promove uma desintoxicação natural, deixando sua pele com um aspecto mais saudável, fresco e radiante. Permita-se esse cuidado rejuvenescedor para sua beleza natural!"
     }
   ];
 
@@ -92,13 +92,13 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            O que oferecemos
+            O que ofereço
           </h2>
           <p className="text-dark text-base max-w-2xl mx-auto"> 
-             Sua experiência será amplificada com uma variedade de tratamentos e técnicas especializadas.
+             Sua experiência será amplificada com o atendimento personalizado e humanizado <br /> de uma profissional especializada em uma variedade de tratamentos e técnicas focadas no seu bem estar.
           </p>
           <h4 className="text-2xl md:text-4xl font-semibold text-primary mb-1">
-            O seu bem estar é a nossa prioridade!
+            O seu bem estar é a prioridade!
           </h4>
         </div>
 
