@@ -56,7 +56,7 @@ const Header = ({ abrirModal }) => {
             onClick={(e) => handleNavClick(e, '#home')}
           >
             <img
-              src="/src/assets/FaviconSVG.svg"
+              src="/images/iconSVG.svg"
               alt="Logo Michely Massoterapia"
               className="w-16 h-16 md:w-16 md:h-16 object-contain filter drop-shadow-lg row-span-full"
             />

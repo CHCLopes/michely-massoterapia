@@ -153,11 +153,11 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-4" // Removido mb-8 daqui para consistência
+              className="shrink-0 px-4" // Removido mb-8 daqui para consistência
               style={{ width: `${100 / cardsPerView}%` }}
             >
               <div className="bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-primary h-full flex flex-col mb-8"> {/* Adicionado mb-8 aqui */}
-                <div className="h-48 overflow-hidden flex-shrink-0">
+                <div className="h-48 overflow-hidden shrink-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -165,11 +165,11 @@ const Services = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
+                <div className="p-6 grow flex flex-col">
                   <h3 className="text-xl font-bold text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-dark text-sm leading-relaxed flex-grow">
+                  <p className="text-dark text-sm leading-relaxed grow">
                     {service.description}
                   </p>
                 </div>
