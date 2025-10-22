@@ -11,9 +11,9 @@ const Cta = ({ abrirModal }) => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-center mb-8">
-          <div className="bg-white/100 rounded-full p-2 pt-6 pl-6 backdrop-blur-sm border border-white/20 shadow-lg shadow-white/30">
+          <div className="bg-white rounded-full p-2 pt-6 pl-6 backdrop-blur-sm border border-white/20 shadow-lg shadow-white/30">
             <img
-              src="/src/assets/FaviconSVG.svg"
+              src="/images/iconSVG.svg"
               alt="Logo Michely Massoterapia"
               className="w-40 h-40 md:w-24 md:h-24 object-contain filter drop-shadow-lg"
             />
