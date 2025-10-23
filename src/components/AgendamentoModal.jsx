@@ -339,7 +339,7 @@ const AgendamentoModal = ({ isOpen, onClose }) => {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-6 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary/5 transition-all disabled:opacity-50"
+              className="flex-1 px-6 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary/5 transition-all disabled:opacity-50 cursor-pointer"
               disabled={isSubmitting}
             >
               Cancelar
@@ -347,7 +347,7 @@ const AgendamentoModal = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isSubmitting || !formData.dataDesejada || !formData.horarioDesejado}
-              className="flex-1 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 disabled:opacity-50 disabled:hover:translate-y-0"
+              className="flex-1 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 disabled:opacity-50 disabled:hover:translate-y-0 cursor-pointer"
             >
               {isSubmitting ? 'Enviando...' : 'Solicitar Agendamento'}
             </button>

@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  
+  const carouselRef = useRef(null);
 
   const services = [
     {
-      image: "/images/massoterapia.jpg", // ✅ Corrigido: removido "public/"
+      image: "/images/massoterapia.jpg",
       title: "Massoterapia Relaxante",
       description: "Deixe-se envolver pela Massoterapia Relaxante, uma experiência única que combina movimentos suaves e firmes para aliviar profundamente o estresse e a tensão muscular, promovendo um estado de relaxamento e bem-estar que você merece. Agende sua sessão e sinta a diferença!"
     },
@@ -62,7 +66,6 @@ const Services = () => {
       } else {
         setCardsPerView(3);
       }
-      // ✅ Removido: setCurrentIndex(0) - mantém a posição atual
     };
 
     handleResize();
@@ -71,6 +74,7 @@ const Services = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Funções de navegação
   const nextSlide = () => {
     const maxIndex = Math.ceil(services.length / cardsPerView) - 1;
     setCurrentIndex((prevIndex) => (prevIndex < maxIndex ? prevIndex + 1 : 0));
@@ -83,6 +87,68 @@ const Services = () => {
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
+  };
+
+  // Funções de arrasto (drag) - SIMPLIFICADAS
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+
+    // Calcular novo índice baseado no arrasto
+    const containerWidth = carouselRef.current.offsetWidth;
+    const cardWidth = containerWidth / cardsPerView;
+    const dragThreshold = cardWidth * 0.3;
+
+    if (Math.abs(walk) > dragThreshold) {
+      if (walk > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      setIsDragging(false);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    
+    // Calcular novo índice baseado no arrasto
+    const containerWidth = carouselRef.current.offsetWidth;
+    const cardWidth = containerWidth / cardsPerView;
+    const dragThreshold = cardWidth * 0.2;
+    
+    if (Math.abs(walk) > dragThreshold) {
+      if (walk > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      setIsDragging(false);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
   };
 
   const totalSlides = Math.max(1, Math.ceil(services.length / cardsPerView));
@@ -139,45 +205,52 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Carrossel */}
-
-      {/* Carrossel */}
-      <div className="relative overflow-hidden max-w-5xl mx-auto">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            // 👇 A ÚNICA LINHA QUE PRECISA MUDAR É ESTA
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
+        {/* Carrossel com suporte a arrasto */}
+        <div 
+          ref={carouselRef}
+          className="relative overflow-hidden max-w-5xl mx-auto cursor-grab active:cursor-grabbing"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="shrink-0 px-4" // Removido mb-8 daqui para consistência
-              style={{ width: `${100 / cardsPerView}%` }}
-            >
-              <div className="bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-primary h-full flex flex-col mb-8"> {/* Adicionado mb-8 aqui */}
-                <div className="h-48 overflow-hidden shrink-0">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-6 grow flex flex-col">
-                  <h3 className="text-xl font-bold text-primary mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-dark text-sm leading-relaxed grow">
-                    {service.description}
-                  </p>
+          <div
+            className="flex transition-transform duration-300 ease-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+            }}
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="shrink-0 px-4"
+                style={{ width: `${100 / cardsPerView}%` }}
+              >
+                <div className="bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-primary h-full flex flex-col mb-8 select-none">
+                  <div className="h-48 overflow-hidden shrink-0">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 pointer-events-none"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6 grow flex flex-col">
+                    <h3 className="text-xl font-bold text-primary mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-dark text-sm leading-relaxed grow">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ const Header = ({ abrirModal }) => {
 
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="mx-auto px-4 py-3">
+      <div className=" px-2 py-3">
         
         {/* Grid Principal - Substituindo o flex */}
         <div className="grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center gap-4">
@@ -58,11 +58,11 @@ const Header = ({ abrirModal }) => {
             <img
               src="/images/iconSVG.svg"
               alt="Logo Michely Massoterapia"
-              className="w-16 h-16 md:w-16 md:h-16 object-contain filter drop-shadow-lg row-span-full"
+              className="w-16 h-16 md:w-16 md:h-16 object-contain filter drop-shadow-lg row-span-full cursor-pointer"
             />
-            <span className="col-2 row-1">Michely <br />            
+            <span className="col-2 row-1 cursor-pointer">Michely <br />            
             </span>
-            <span className="col-2 row-2 font-size-2xl font-semibold">Massoterapia</span>              
+            <span className="col-2 row-2 font-size-2xl font-semibold cursor-pointer">Massoterapia</span>              
           </a>
 
           {/* Menu Desktop - Segunda coluna (centralizada) */}
@@ -72,7 +72,7 @@ const Header = ({ abrirModal }) => {
                 <li key={item.href}>
                   <a 
                     href={item.href} 
-                    className="text-dark font-medium hover:text-primary transition-colors text-sm whitespace-nowrap"
+                    className="text-dark font-medium hover:text-primary transition-colors text-sm whitespace-nowrap cursor-pointer"
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.label}
@@ -87,8 +87,8 @@ const Header = ({ abrirModal }) => {
             
             {/* Botão Agendar Horário Desktop */}
             <button 
-              className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-full font-semibold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-sm hover:-translate-y-0.5 whitespace-nowrap"
-              onClick={handleAgendarClick}
+              className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-full font-semibold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-sm hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+              onClick={(e) => handleNavClick(e, '#contact')}
             >
               Agendar Horário
             </button>
@@ -108,16 +108,6 @@ const Header = ({ abrirModal }) => {
               )}
             </button>
           </div>
-        </div>
-
-        {/* Segunda linha: Botão Agendar Horário Centralizado - apenas em mobile */}
-        <div className="md:hidden grid justify-center mt-4">
-          <button 
-            className="bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-center max-w-xs text-lg hover:-translate-y-0.5 justify-self-center col-span-full"
-            onClick={handleAgendarClick}
-          >
-            Agendar Horário
-          </button>
         </div>
 
         {/* Menu Mobile */}
@@ -143,10 +133,10 @@ const Header = ({ abrirModal }) => {
               {/* Item adicional para agendamento no menu mobile */}
               <li className="border-t border-gray-200 pt-2 mt-2">
                 <button 
-                  className="block w-full text-primary font-semibold hover:bg-primary hover:text-white transition-colors p-2 rounded text-sm text-center"
+                  className="bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-center max-w-xs text-lg hover:-translate-y-0.5 justify-self-center w-full"
                   onClick={handleAgendarClick}
                 >
-                  📅 Agendar Sessão
+                  Agendar Horário
                 </button>
               </li>
             </ul>

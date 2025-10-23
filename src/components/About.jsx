@@ -36,7 +36,7 @@ const About = () => {
           {/* Coluna da Imagem */}
           <div className="grid justify-items-center">
             <div className="relative">
-              <div className="bg-gradient-to-br from-secondary to-primary rounded-2xl shadow-2xl overflow-hidden w-80 h-80 lg:w-96 lg:h-96">
+              <div className="bg-linear-to-br from-secondary to-primary rounded-2xl shadow-2xl overflow-hidden w-80 h-80 lg:w-96 lg:h-96">
                 <img 
                   src="/images/michelyFinal.jpg"
                   alt="Michely - Massoterapeuta Profissional"
@@ -53,7 +53,7 @@ const About = () => {
         <div className="flex justify-center">
           <a 
             href="#contact" 
-            className="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 text-center"
+            className="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 text-center cursor-pointer"
           >
             Entre em Contato
           </a>

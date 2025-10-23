@@ -28,7 +28,7 @@ const Cta = ({ abrirModal }) => {
         </p>
         <button 
           onClick={abrirModal}
-          className="inline-block bg-white text-[#07a0a4] px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:-translate-y-1 transition-all shadow-lg hover:shadow-white/30 text-lg"
+          className="inline-block bg-white text-[#07a0a4] px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:-translate-y-1 transition-all shadow-lg hover:shadow-white/30 text-lg cursor-pointer"
         >
           Venha para Michely Massoterapia
         </button>

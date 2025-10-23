@@ -35,16 +35,16 @@ const Footer = () => {
             <h3 className="text-xl text-secondary font-bold mb-6">Redes Sociais</h3>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <FaFacebookF />
+                <FaFacebookF className="text-secondary cursor-pointer"/>
               </a>
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <FaInstagram />
+                <FaInstagram className="text-secondary cursor-pointer"/>
               </a>
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <FaWhatsapp />
+                <FaWhatsapp className="text-secondary cursor-pointer"/>
               </a>
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <FaTelegram />
+                <FaTelegram className="text-secondary cursor-pointer"/>
               </a>
             </div>
           </div>
