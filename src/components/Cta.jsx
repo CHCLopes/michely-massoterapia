@@ -4,7 +4,7 @@ const Cta = ({ abrirModal }) => {
   return (
     <section 
       id="contact" 
-      className="py-24 text-white text-center scroll-mt-20"
+      className="py-12 text-white text-center scroll-mt-20"
       style={{
         background: 'linear-gradient(to right, #07a0a4, #8dd3c7)'
       }}
@@ -24,13 +24,13 @@ const Cta = ({ abrirModal }) => {
           Pronto para uma experiência transformadora?
         </h2>
         <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 opacity-90">
-          Agende agora mesmo sua sessão e descubra os benefícios da massoterapia para sua saúde e bem-estar.
+          Agende agora mesmo sua sessão e descubra os benefícios da massoterapia para sua saúde e qualidade de vida.
         </p>
         <button 
           onClick={abrirModal}
           className="inline-block bg-white text-[#07a0a4] px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:-translate-y-1 transition-all shadow-lg hover:shadow-white/30 text-lg cursor-pointer"
         >
-          Venha para Michely Massoterapia
+          Fale comigo e transforme seu bem-estar!
         </button>
       </div>
     </section>

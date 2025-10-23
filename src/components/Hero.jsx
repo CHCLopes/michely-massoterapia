@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <section 
       id='home' 
-      className='pt-40 pb-20 bg-light bg-opacity-90 bg-[url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><rect fill=\"%2303876a\" fill-opacity=\"0.1\" width=\"100\" height=\"100\"/></svg>")] text-center scroll-mt-10'
+      className='pt-24 pb-10 bg-light bg-opacity-90 bg-[url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><rect fill=\"%2303876a\" fill-opacity=\"0.1\" width=\"100\" height=\"100\"/></svg>")] text-center scroll-mt-10'
     >
       <div className='container mx-auto px-4'>
         <h1 className='text-3xl md:text-5xl font-bold text-primary mb-5'>

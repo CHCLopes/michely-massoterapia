@@ -42,27 +42,27 @@ const Header = ({ abrirModal }) => {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className=" px-2 py-3">
+    <header className="bg-white shadow-md fixed w-full top-0 p-0 z-50">
+      <div className=" px-2 py-0">
         
         {/* Grid Principal - Substituindo o flex */}
-        <div className="grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center gap-4">
+        <div className="grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center gap-2">
           
           {/* Logo - Primeira coluna */}
           <a 
             href="#home" 
-            className="grid grid-cols-[fit_auto] grid-rows-[auto_auto] gap-0 p-0 text-xl md:text-2xl font-bold text-primary cursor-pointer justify-self-start text-start"
+            className="grid grid-cols-[fit_auto] grid-rows-[auto_auto] gap-0 p-0 text-xl md:text-1 font-bold text-primary cursor-pointer justify-self-start text-start"
             aria-label="Voltar para o Início"
             onClick={(e) => handleNavClick(e, '#home')}
           >
             <img
               src="/images/iconSVG.svg"
               alt="Logo Michely Massoterapia"
-              className="w-16 h-16 md:w-16 md:h-16 object-contain filter drop-shadow-lg row-span-full cursor-pointer"
+              className="w-16 h-16 md:w-16 md:h-16 object-contain filter drop-shadow-lg row-span-full cursor-pointer m-0 p-0"
             />
-            <span className="col-2 row-1 cursor-pointer">Michely <br />            
+            <span className="col-2 row-1 cursor-pointer m-0 p-0">Michely <br />            
             </span>
-            <span className="col-2 row-2 font-size-2xl font-semibold cursor-pointer">Massoterapia</span>              
+            <span className="col-2 row-2 font-size-2xl font-semibold cursor-pointer m-0 p-0">Massoterapia</span>              
           </a>
 
           {/* Menu Desktop - Segunda coluna (centralizada) */}

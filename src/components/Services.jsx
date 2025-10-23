@@ -6,6 +6,7 @@ const Services = () => {
   const [cardsPerView, setCardsPerView] = useState(3);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
   
   const carouselRef = useRef(null);
 
@@ -66,6 +67,8 @@ const Services = () => {
       } else {
         setCardsPerView(3);
       }
+      // Reset para o primeiro slide quando mudar o viewport
+      setCurrentIndex(0);
     };
 
     handleResize();
@@ -74,87 +77,113 @@ const Services = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Funções de navegação
+  // CORREÇÃO PRINCIPAL: Cálculo correto do número máximo de slides
+  const totalSlides = Math.max(1, services.length - cardsPerView + 1);
+
+  // Funções de navegação CORRIGIDAS
   const nextSlide = () => {
-    const maxIndex = Math.ceil(services.length / cardsPerView) - 1;
-    setCurrentIndex((prevIndex) => (prevIndex < maxIndex ? prevIndex + 1 : 0));
+    setCurrentIndex((prevIndex) => 
+      prevIndex < totalSlides - 1 ? prevIndex + 1 : 0
+    );
   };
 
   const prevSlide = () => {
-    const maxIndex = Math.ceil(services.length / cardsPerView) - 1;
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : maxIndex));
+    setCurrentIndex((prevIndex) => 
+      prevIndex > 0 ? prevIndex - 1 : totalSlides - 1
+    );
   };
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
-  // Funções de arrasto (drag) - SIMPLIFICADAS
+  // Funções de arrasto (drag) - CORRIGIDAS
   const handleMouseDown = (e) => {
     setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setStartX(e.pageX);
+    setDragDistance(0);
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
-    e.preventDefault();
     
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const currentX = e.pageX;
+    const distance = currentX - startX;
+    setDragDistance(distance);
+  };
 
-    // Calcular novo índice baseado no arrasto
-    const containerWidth = carouselRef.current.offsetWidth;
-    const cardWidth = containerWidth / cardsPerView;
-    const dragThreshold = cardWidth * 0.3;
-
-    if (Math.abs(walk) > dragThreshold) {
-      if (walk > 0) {
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    
+    const containerWidth = carouselRef.current?.offsetWidth || 0;
+    const dragThreshold = containerWidth * 0.15;
+    
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
         prevSlide();
       } else {
         nextSlide();
       }
-      setIsDragging(false);
     }
-  };
-
-  const handleMouseUp = () => {
+    
     setIsDragging(false);
+    setDragDistance(0);
   };
 
   const handleTouchStart = (e) => {
     setIsDragging(true);
-    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setStartX(e.touches[0].pageX);
+    setDragDistance(0);
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const currentX = e.touches[0].pageX;
+    const distance = currentX - startX;
+    setDragDistance(distance);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
     
-    // Calcular novo índice baseado no arrasto
-    const containerWidth = carouselRef.current.offsetWidth;
-    const cardWidth = containerWidth / cardsPerView;
-    const dragThreshold = cardWidth * 0.2;
+    const containerWidth = carouselRef.current?.offsetWidth || 0;
+    const dragThreshold = containerWidth * 0.1;
     
-    if (Math.abs(walk) > dragThreshold) {
-      if (walk > 0) {
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
         prevSlide();
       } else {
         nextSlide();
       }
-      setIsDragging(false);
     }
-  };
-
-  const handleTouchEnd = () => {
+    
     setIsDragging(false);
+    setDragDistance(0);
   };
 
-  const totalSlides = Math.max(1, Math.ceil(services.length / cardsPerView));
+  // CORREÇÃO: Cálculo do transform para mostrar todos os itens
+  const getTransformValue = () => {
+    const baseTransform = -currentIndex * (100 / cardsPerView);
+    const dragOffset = isDragging ? (dragDistance / (carouselRef.current?.offsetWidth || 1)) * 100 : 0;
+    return `translateX(calc(${baseTransform}% + ${dragOffset}px))`;
+  };
+
+  const handleScrollToContact = (e) => {
+    e.preventDefault();
+    
+    const targetElement = document.querySelector('#contact');
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    };
+  };
 
   return (
-    <section id="services" className="py-20 bg-white scroll-mt-20">
+    <section id="services" className="py-8 bg-white scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -179,7 +208,7 @@ const Services = () => {
               <ChevronLeftIcon className="w-6 h-6" />
             </button>
 
-            {/* Indicadores */}
+            {/* Indicadores - CORRIGIDO para usar totalSlides correto */}
             <div className="flex items-center space-x-2">
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <button
@@ -208,7 +237,9 @@ const Services = () => {
         {/* Carrossel com suporte a arrasto */}
         <div 
           ref={carouselRef}
-          className="relative overflow-hidden max-w-5xl mx-auto cursor-grab active:cursor-grabbing"
+          className={`relative overflow-hidden max-w-5xl mx-auto ${
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -220,7 +251,8 @@ const Services = () => {
           <div
             className="flex transition-transform duration-300 ease-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              transform: getTransformValue(),
+              transition: isDragging ? 'none' : 'transform 300ms ease-out'
             }}
           >
             {services.map((service, index) => (
@@ -245,6 +277,12 @@ const Services = () => {
                     <p className="text-dark text-sm leading-relaxed grow">
                       {service.description}
                     </p>
+                    <button 
+                      onClick={handleScrollToContact}
+                      className='bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 cursor-pointer'
+                    >
+                      Agendar Agora
+                    </button>
                   </div>
                 </div>
               </div>

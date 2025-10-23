@@ -15,7 +15,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-10 bg-light scroll-mt-10">
+    <section id="about" className="py-6 bg-light scroll-mt-10">
       <div className="container mx-auto px-2">
         
         {/* Título - SEMPRE NO TOPO E CENTRALIZADO */}
