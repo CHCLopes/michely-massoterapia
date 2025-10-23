@@ -28,7 +28,7 @@ const Footer = () => {
           
           <div>
             <h3 className="text-xl text-secondary font-bold mb-6">Atendimento</h3>
-            <p>Segunda a Sábado, das 08h as 19h </p>
+            <p>Segunda a Sábado, das 09h30 as 19h30</p>
           </div>
           
           <div>
