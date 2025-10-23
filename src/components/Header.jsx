@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { href: "#services", label: "Serviços" },
   { href: "#about", label: "Sobre" },
   { href: "#testimonials", label: "Depoimentos" },
-  { href: "#contact", label: "Contato" }
+  { href: "#footer", label: "Contato" }
 ];
 
 const Header = ({ abrirModal }) => {

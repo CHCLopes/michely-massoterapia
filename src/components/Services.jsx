@@ -173,7 +173,7 @@ const Services = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={prevSlide}
-              className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-accent transition-all shadow-lg hover:shadow-primary/30"
+              className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 invisible md:visible"
               aria-label="Slide anterior"
             >
               <ChevronLeftIcon className="w-6 h-6" />
@@ -197,7 +197,7 @@ const Services = () => {
 
             <button
               onClick={nextSlide}
-              className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-accent transition-all shadow-lg hover:shadow-primary/30"
+              className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 invisible md:visible"
               aria-label="Próximo slide"
             >
               <ChevronRightIcon className="w-6 h-6" />

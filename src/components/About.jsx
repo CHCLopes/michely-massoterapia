@@ -1,6 +1,19 @@
 import React from 'react';
 
 const About = () => {
+
+  // Função para rolar suavemente até a seção de contato
+  const scrollToContact = () => {
+    const targetElement = document.querySelector('#contact');
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="about" className="py-10 bg-light scroll-mt-10">
       <div className="container mx-auto px-2">
@@ -50,13 +63,13 @@ const About = () => {
         </div>
 
         {/* Botão - SEMPRE NO FINAL E CENTRALIZADO */}
-        <div className="flex justify-center">
-          <a 
-            href="#contact" 
-            className="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 text-center cursor-pointer"
+          <div className="flex justify-center">
+            <button 
+            onClick={scrollToContact} // Corrigido: agora chama a função
+            className='bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-accent hover:-translate-y-1 transition-all shadow-lg hover:shadow-primary/30 cursor-pointer'
           >
-            Entre em Contato
-          </a>
+            Agendar Agora
+          </button>
         </div>
       </div>
     </section>
