@@ -11,3 +11,13 @@
   margin: 0 auto;
   padding: 0 0.25rem;
 }
+
+/* Personalizações adicionais */
+#jotform-agent-embed-019a12e0fc20710682ac5ddc13b9f8512a4a {
+  border-radius: 0 0 1rem 1rem;
+}
+
+/* Garante que o iframe fique responsivo */
+iframe {
+  border: none;
+}

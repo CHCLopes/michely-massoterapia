@@ -14,12 +14,7 @@ const Services = () => {
     {
       image: "/images/massoterapia.jpg",
       title: "Massoterapia Relaxante",
-      description: "Deixe-se envolver pela Massoterapia Relaxante, uma experiência única que combina movimentos suaves e firmes para aliviar profundamente o estresse e a tensão muscular, promovendo um estado de relaxamento e bem-estar que você merece. Agende sua sessão e sinta a diferença!"
-    },
-    {
-      image: "/images/terapeutica.jpg",
-      title: "Massagem Terapêutica",
-      description: "A Massagem Terapêutica é especializada no tratamento eficaz de dores específicas, lesões e problemas musculares. Com técnicas avançadas e focadas, ofereço o alívio e a recuperação que você busca para retomar suas atividades com conforto e bem-estar. Agende uma avaliação e invista na sua saúde muscular!"
+      description: "Deixe-se envolver pela Massoterapia Relaxante Terapêutica, uma experiência única que combina movimentos suaves e firmes para aliviar profundamente o estresse e a tensão muscular, especializada no tratamento eficaz de dores específicas, lesões e problemas musculares promovendo um estado de relaxamento e bem-estar que você merece.Com técnicas avançadas e focadas, ofereço o alívio e a recuperação que você busca para retomar suas atividades com conforto. Agende uma avaliação e invista na sua saúde muscular!"
     },
     {
       image: "/images/podal.jpg",
@@ -43,12 +38,12 @@ const Services = () => {
     },
     {
       image: "/images/drenoRelaxante.jpg", 
-      title: "Massagem Dreno-Relaxante",
+      title: "Massagem Dreno Relaxante",
       description: "Experimente o Dreno Relaxante, a harmonia perfeita entre a eliminação de inchaço e toxinas da drenagem linfática e o alívio profundo da tensão muscular de uma massagem relaxante. Deixe-se levar por um toque suave que desincha e tranquiliza, renovando suas energias e proporcionando uma sensação duradoura de leveza e paz para corpo e mente. Permita-se essa pausa restauradora!"
     },
     {
       image: "/images/drenoModeladora.jpg",
-      title: "Dreno-Modeladora",
+      title: "Massagem Dreno Modeladora",
       description: "Conquiste contornos mais definidos e uma silhueta esculpida com a Dreno Modeladora. Essa técnica poderosa combina a redução de inchaço e eliminação de toxinas da drenagem linfática com movimentos firmes da massagem modeladora, atuando na quebra de gordura localizada e na melhoria da circulação para um corpo visivelmente mais harmonioso e tonificado. Revele a sua melhor forma!"
     },
     {

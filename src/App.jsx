@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials'
 import Cta from './components/Cta'
 import Footer from './components/Footer'
 import AgendamentoModal from './components/AgendamentoModal';
+import ChatbotJotForm from './components/ChatbotJotForm';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +33,7 @@ function App() {
         isOpen={isModalOpen} 
         onClose={fecharModal} 
       />
+      <ChatbotJotForm />
     </div>
   )
 }
